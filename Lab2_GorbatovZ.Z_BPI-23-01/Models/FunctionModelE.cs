@@ -1,12 +1,65 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
 {
-    class FunctionModelE
+    public class FunctionModelE : FunctionModel
     {
+        private double _x;
+        private double _y;
+        private int _n;
+        private int _k;
+        public FunctionModelE(double x, double y, int n, int k) : base("Resource/img5.png")
+        {
+            X = x;
+            Y = y;
+            N = n;
+            K = k;
+            Result = Calculate();
+        }
+
+        public double X
+        {
+            get { return _x; }
+            set
+            {
+                _x = value;
+            }
+        }
+        public double Y
+        {
+            get { return _y; }
+            set
+            {
+                _y = value;
+            }
+        }
+        public int N
+        {
+            get { return _n; }
+            set
+            {
+                _n = value;
+            }
+        }
+        public int K
+        {
+            get { return _k; }
+            set
+            {
+                _k = value;
+            }
+        }
+
+        public double Calculate()
+        {
+            double SumN = 0;
+            for (int i = 1; i <= N; i++)
+            {
+                double SumK = 0;
+                for (int j = 1; j <= K; j++) SumK += (Math.Sin(X) * Math.Pow(X, i) + Math.Cos(Y) * Math.Pow(Y, i)) / (i * j);
+                SumN += SumK;
+            }
+            return SumN;
+        }
     }
 }

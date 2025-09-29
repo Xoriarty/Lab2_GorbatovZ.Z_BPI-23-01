@@ -3,6 +3,7 @@
     public abstract class FunctionModel
     {
         private string _path;
+        private double _result;
         
             public FunctionModel(string path)
             {
@@ -13,6 +14,12 @@
                 get { return _path; }
                 set
                 { _path = value; }
+            }
+            public double Result
+            {
+                get { return _result; }
+                set
+                { _result = value; }
             }
     }
 }

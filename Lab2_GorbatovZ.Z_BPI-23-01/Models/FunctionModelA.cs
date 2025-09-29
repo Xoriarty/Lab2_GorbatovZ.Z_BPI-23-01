@@ -11,6 +11,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
         {
             A = a;
             Index = index;
+            Result = Calculate();
         }
 
         public double A
