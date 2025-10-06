@@ -11,33 +11,32 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
         {
             A = a;
             Index = index;
-            Result = Calculate();
+            CalculateResult();
         }
-
         public double A
         {
             get { return _a; }
             set
             {
                 _a = value;
+                CalculateResult();
+
             }
         }
-        public int[] F
-        {
-            get { return _f; }
-        }
+        public int[] F => _f;
         public int Index
         {
             get { return _index; }
             set
             {
                 _index = value;
+                CalculateResult();
             }
         }
 
-        public double Calculate()
+        private void CalculateResult()
         {
-            return Math.Sin(A * _f[Index]);
+            Result = Math.Sin(A * _f[Index]);
         }
     }
 }

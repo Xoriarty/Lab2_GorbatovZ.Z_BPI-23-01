@@ -3,10 +3,68 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Lab2_GorbatovZ.Z_BPI_23_01"
+        xmlns:local="clr-namespace:Lab2_GorbatovZ.Z_BPI_23_01" xmlns:local1="clr-namespace:Lab2_GorbatovZ.Z_BPI_23_01.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <RadioButton IsChecked="True" Margin="5" Name="Radiol">
+            <RadioButton.DataContext>
+                <local1:FunctionViewModelA />
+            </RadioButton.DataContext>
+            <WrapPanel>
+                <Image Source="{Binding ImagePath}" Height="30"/>
+                <GroupBox Header="Parameters">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="a = " Grid.Column="0" Grid.Row="0"/>
+                        <TextBox Text="{Binding A, StringFormat=N2}" Grid.Column="1" Grid.Row="0"
+                                 MinWidth="70" Name="R1TextA"/>
+
+                        <Label Content="f = " Grid.Column="0" Grid.Row="1"/>
+                        <ComboBox Grid.Column="1" Grid.Row="1" SelectedIndex = "{Binding Index}"
+                                  Name="R1ComboF">
+                            <ComboBoxItem>4</ComboBoxItem>
+                            <ComboBoxItem>5</ComboBoxItem>
+                            <ComboBoxItem>6</ComboBoxItem>
+                            <ComboBoxItem>7</ComboBoxItem>
+                            <ComboBoxItem>8</ComboBoxItem>
+                            <ComboBoxItem>9</ComboBoxItem>
+                        </ComboBox>
+
+                        <Label Content="Ответ " Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding Result, StringFormat=N4}" Grid.Column="2" Grid.Row="1"
+                                   VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                    </Grid>
+                </GroupBox>
+            </WrapPanel>
+        </RadioButton>
+
+        <RadioButton Margin="5" Name="Radio2">
+            <StackPanel>
+            </StackPanel>
+        </RadioButton>
+
+        <RadioButton Margin="5" Name="Radio3">
+            <StackPanel>
+               
+            </StackPanel>
+        </RadioButton>
+
+        <RadioButton Margin="5" Name="Radio4">
+            <WrapPanel>
+            </WrapPanel>
+        </RadioButton>
+
+        <Button Content="Рассчитать" Width="100" Margin="5" Name="CalculateButton"/>
+    </StackPanel>
 </Window>
