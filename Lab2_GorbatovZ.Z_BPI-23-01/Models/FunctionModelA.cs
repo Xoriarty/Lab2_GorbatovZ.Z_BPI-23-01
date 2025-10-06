@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Documents;
 
 namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
 {
@@ -11,7 +14,6 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
         {
             A = a;
             Index = index;
-            CalculateResult();
         }
         public double A
         {
@@ -19,24 +21,22 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _a = value;
-                CalculateResult();
+                OnPropertyChanged(nameof(A));
 
             }
         }
-        public int[] F => _f;
+        public List<int> F
+        {
+            get { return _f.ToList(); }
+        }
         public int Index
         {
             get { return _index; }
             set
             {
                 _index = value;
-                CalculateResult();
+                OnPropertyChanged(nameof(Index));
             }
-        }
-
-        private void CalculateResult()
-        {
-            Result = Math.Sin(A * _f[Index]);
         }
     }
 }
