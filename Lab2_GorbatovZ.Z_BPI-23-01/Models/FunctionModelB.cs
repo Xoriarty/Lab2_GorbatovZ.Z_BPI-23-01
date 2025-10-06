@@ -8,11 +8,12 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
         private double _b;
         private int[] _f = new int[4] { 10, 20, 30, 40 };
         private int _index;
-        public FunctionModelB(double a, int index) : base("Resource/img2.png")
+        public FunctionModelB(double a, double b, int index) : base("Resource/img2.png")
         {
             A = a;
+            B = b;
             Index = index;
-            Result = Calculate();
+            CalculateResult();
         }
 
         public double A
@@ -21,6 +22,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _a = value;
+                CalculateResult();
             }
         }
         public int[] F
@@ -33,6 +35,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _b = value;
+                CalculateResult();
             }
         }
         public int Index
@@ -41,12 +44,13 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _index = value;
+                CalculateResult();
             }
         }
 
-        public double Calculate()
+        public void CalculateResult()
         {
-            return Math.Cos(A * _f[Index]) + Math.Sin(B * _f[Index]);
+            Result = Math.Cos(A * _f[Index]) + Math.Sin(B * _f[Index]);
         }
     }
 }

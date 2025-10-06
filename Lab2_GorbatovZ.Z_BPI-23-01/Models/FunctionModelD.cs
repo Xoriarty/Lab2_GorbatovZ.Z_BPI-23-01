@@ -13,7 +13,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             A = a;
             IndexC = indexC;
             D = d;
-            Result = Calculate();
+            CalculateResult();
         }
 
         public double A
@@ -22,6 +22,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _a = value;
+                CalculateResult();
             }
         }
         public int[] C
@@ -34,6 +35,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _d = value;
+                CalculateResult();
             }
         }
         public int IndexC
@@ -42,14 +44,15 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _indexC = value;
+                CalculateResult();
             }
         }
 
-        public double Calculate()
+        public void CalculateResult()
         {
             double Sum = 0;
             for (int i = 0; i <= D; i++) Sum += Math.Pow(C[IndexC] + A, i);
-            return Sum;
+            Result = Sum;
         }
     }
 }

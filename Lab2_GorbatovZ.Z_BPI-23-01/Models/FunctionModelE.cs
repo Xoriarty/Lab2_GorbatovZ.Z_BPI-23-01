@@ -14,7 +14,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             Y = y;
             N = n;
             K = k;
-            Result = Calculate();
+            CalculateResult();
         }
 
         public double X
@@ -23,6 +23,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _x = value;
+                CalculateResult();
             }
         }
         public double Y
@@ -31,6 +32,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _y = value;
+                CalculateResult();
             }
         }
         public int N
@@ -39,6 +41,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _n = value;
+                CalculateResult();
             }
         }
         public int K
@@ -47,10 +50,11 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _k = value;
+                CalculateResult();
             }
         }
 
-        public double Calculate()
+        public void CalculateResult()
         {
             double SumN = 0;
             for (int i = 1; i <= N; i++)
@@ -59,7 +63,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
                 for (int j = 1; j <= K; j++) SumK += (Math.Sin(X) * Math.Pow(X, i) + Math.Cos(Y) * Math.Pow(Y, i)) / (i * j);
                 SumN += SumK;
             }
-            return SumN;
+            Result = SumN;
         }
     }
 }

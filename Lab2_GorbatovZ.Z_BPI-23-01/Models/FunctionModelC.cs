@@ -14,7 +14,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             A = a;
             IndexC = indexC;
             IndexD = indexD;
-            Result = Calculate();
+            CalculateResult();
         }
 
         public double A
@@ -23,6 +23,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _a = value;
+                CalculateResult();
             }
         }
         public int[] C
@@ -39,6 +40,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _b = value;
+                CalculateResult();
             }
         }
         public int IndexC
@@ -47,6 +49,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _indexC = value;
+                CalculateResult();
             }
         }
         public int IndexD
@@ -55,12 +58,13 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.Models
             set
             {
                 _indexD = value;
+                CalculateResult();
             }
         }
 
-        public double Calculate()
+        public void CalculateResult()
         {
-            return C[IndexC] * A * A + D[IndexD] * B * B;
+            Result = C[IndexC] * A * A + D[IndexD] * B * B;
         }
     }
 }

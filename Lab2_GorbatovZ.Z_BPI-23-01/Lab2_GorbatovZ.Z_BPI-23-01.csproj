@@ -56,6 +56,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\FunctionViewModelA.cs" />
+    <Compile Include="ViewModels\FunctionViewModelB.cs" />
+    <Compile Include="ViewModels\FunctionViewModelC.cs" />
+    <Compile Include="ViewModels\FunctionViewModelD.cs" />
+    <Compile Include="ViewModels\FunctionViewModelE.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

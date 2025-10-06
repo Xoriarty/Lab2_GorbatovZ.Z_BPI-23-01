@@ -1,7 +1,6 @@
 ﻿using Lab2_GorbatovZ.Z_BPI_23_01.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -10,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Lab2_GorbatovZ.Z_BPI_23_01.ViewModels
 {
-    class FunctionViewModelA : INotifyPropertyChanged
+    class FunctionViewModelD : INotifyPropertyChanged
     {
-        private FunctionModelA _func;
+        private FunctionModelD _func;
 
-        public FunctionViewModelA()
+        public FunctionViewModelD()
         {
-            _func = new FunctionModelA(0, 0);
+            _func = new FunctionModelD(0, 0, 0);
         }
         public string ImagePath => _func.Path;
         public double A
@@ -28,18 +27,31 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.ViewModels
                 {
                     _func.A = value;
                     OnPropertyChanged();
-                    OnPropertyChanged(nameof(Result)); 
+                    OnPropertyChanged(nameof(Result));
                 }
             }
         }
-        public int Index
+        public int D
         {
-            get { return _func.Index; }
+            get { return _func.D; }
             set
             {
-                if (_func.Index != value)
+                if (_func.D != value)
                 {
-                    _func.Index = value;
+                    _func.D = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(Result));
+                }
+            }
+        }
+        public int IndexC
+        {
+            get { return _func.IndexC; }
+            set
+            {
+                if (_func.IndexC != value)
+                {
+                    _func.IndexC = value;
                     OnPropertyChanged();
                     OnPropertyChanged(nameof(Result));
                 }
@@ -47,7 +59,7 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.ViewModels
         }
         public List<int> cmbContent
         {
-            get { return _func.F.ToList(); }
+            get { return _func.C.ToList(); }
         }
 
         public double Result => _func.Result;
@@ -58,7 +70,5 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
     }
 }

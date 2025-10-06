@@ -1,7 +1,6 @@
 ﻿using Lab2_GorbatovZ.Z_BPI_23_01.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -10,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Lab2_GorbatovZ.Z_BPI_23_01.ViewModels
 {
-    class FunctionViewModelA : INotifyPropertyChanged
+    class FunctionViewModelB : INotifyPropertyChanged
     {
-        private FunctionModelA _func;
+        private FunctionModelB _func;
 
-        public FunctionViewModelA()
+        public FunctionViewModelB()
         {
-            _func = new FunctionModelA(0, 0);
+            _func = new FunctionModelB(0, 0, 0);
         }
         public string ImagePath => _func.Path;
         public double A
@@ -28,7 +27,20 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.ViewModels
                 {
                     _func.A = value;
                     OnPropertyChanged();
-                    OnPropertyChanged(nameof(Result)); 
+                    OnPropertyChanged(nameof(Result));
+                }
+            }
+        }
+        public double B
+        {
+            get { return _func.B; }
+            set
+            {
+                if (_func.B != value)
+                {
+                    _func.B = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(Result));
                 }
             }
         }
@@ -58,7 +70,5 @@ namespace Lab2_GorbatovZ.Z_BPI_23_01.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-
     }
 }
